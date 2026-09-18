@@ -49,7 +49,7 @@
 
   /* ---------- hero ---------- */
   .hero{
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
     gap:24px;align-items:center;padding:34px 0 12px;
   }
   h1{
@@ -63,12 +63,12 @@
 
   .search{
     display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
-    border-radius:999px;padding:9px 10px 9px 26px;max-width:640px;
+    border-radius:999px;padding:9px 10px 9px 26px;max-width:800px;
     box-shadow:0 2px 10px rgba(21,19,15,.04);
   }
   .search input{
-    flex:1;min-width:0;border:0;outline:0;background:transparent;
-    font:400 19px/1 "Poppins",sans-serif;color:var(--ink);padding:14px 0;
+    flex:1;min-width:372px;border:0;outline:0;background:transparent;
+    font:400 18px/1 "Poppins",sans-serif;color:var(--ink);padding:14px 0;
   }
   .search input::placeholder{color:#a5a096}
   .icon{width:22px;height:22px;flex:none;fill:none;stroke:#8b8579;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -83,10 +83,12 @@
 
   /* ---------- hero art + slideshow ---------- */
   .art{position:relative;min-height:620px;display:flex;align-items:center;justify-content:center}
+  /* Soft halo in the same family as the page background — fades out at the
+     bottom so the artwork never sits on a visible block edge. */
   .art-arch{
     position:absolute;top:2%;left:12%;right:4%;bottom:8%;
-    background:linear-gradient(180deg,#fbfaf7,#f0ece2);
-    border-radius:999px 999px 28px 28px;
+    background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,0) 78%);
+    border-radius:999px 999px 40% 40%;
   }
   .slideshow{position:relative;width:78%;aspect-ratio:1/1;align-self:center;margin-top:24px}
   .slideshow img{
@@ -139,14 +141,24 @@
   @media (max-width:760px){
     .wrap{padding:0 16px}
     .nav-links{display:none}
-    .btn-demo{margin-left:auto}
-    .sub{font-size:19px}
-    .search{flex-wrap:wrap;border-radius:26px;padding:12px 16px}
-    .search input{width:100%;flex:1 1 180px}
-    .btn-find{width:100%}
-    .f1{top:6%;left:-2%}.f2{top:34%;left:-4%}.f3{top:28%;right:-4%}
-    .float{padding:10px 14px;gap:9px}
-    .float .value{font-size:18px}
+    .btn-demo{margin-left:auto;padding:13px 22px;font-size:16px}
+    .sub{font-size:18px}
+    .search{flex-wrap:wrap;border-radius:26px;padding:12px 14px;gap:10px}
+    /* min-width from the desktop rule would force the page to scroll sideways */
+    .search input{flex:1 1 100%;min-width:0;order:1;padding:8px 0}
+    .search .icon{order:0}
+    .locate{order:2}
+    .btn-find{order:3;flex:1;width:auto;padding:15px 20px;font-size:17px}
+    .art{min-height:420px}
+    .slideshow{width:88%;margin-top:8px}
+    .float{padding:9px 12px;gap:8px;border-radius:14px}
+    .float .badge{width:30px;height:30px;border-radius:9px}
+    .float .badge svg{width:16px;height:16px}
+    .float .label{font-size:12px}
+    .float .value{font-size:17px}
+    .f1{top:2%;left:0}
+    .f2{top:26%;left:0}
+    .f3{top:14%;right:0}
   }
 </style>
 </head>
@@ -219,10 +231,10 @@
         </div>
 
         <div class="slideshow" id="slideshow">
-          <img class="active" src="assets/ChatGPT%20Image%20Sep%2018,%202026,%2005_54_24%20PM.png" alt="Kutlerri AI agent reviewing catering data on a tablet" />
-          <img src="assets/ChatGPT%20Image%20Sep%2018,%202026,%2006_06_42%20PM.png" alt="Kutlerri AI agent taking a catering order on the phone" />
-          <img src="assets/ChatGPT%20Image%20Sep%2018,%202026,%2006_06_45%20PM.png" alt="Kutlerri AI agent at work" />
-          <img src="assets/ChatGPT%20Image%20Sep%2018,%202026,%2006_06_47%20PM.png" alt="Kutlerri AI agent at work" />
+          <img class="active" src="assets/robot-1.png" alt="Kutlerri AI agent reviewing catering data on a tablet" />
+          <img src="assets/robot-2.png" alt="Kutlerri AI agent taking a catering order on the phone" />
+          <img src="assets/robot-3.png" alt="Kutlerri AI agent at work" />
+          <img src="assets/robot-4.png" alt="Kutlerri AI agent at work" />
         </div>
       </div>
     </section>
